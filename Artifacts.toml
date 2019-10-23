@@ -1,0 +1,113 @@
+[[x264]]
+arch = "x86_64"
+git-tree-sha1 = "fe8f0f5f11f53ded2d14d992b504c1ed13a13a76"
+os = "macos"
+
+    [[x264.download]]
+    sha256 = "73ae8223ed88f7fa82d1f2b8725cfeb844ebc9e5b12a770f562ba5ea42677a3c"
+    url = "https://github.com/JuliaBinaryWrappers/x264_jll.jl/releases/download/x264-v2019.5.25+0/x264.v2019.5.25.x86_64-apple-darwin14.tar.gz"
+[[x264]]
+arch = "i686"
+git-tree-sha1 = "eb52ef53e3787951515ab153a9fda3cf6dda645f"
+libc = "glibc"
+os = "linux"
+
+    [[x264.download]]
+    sha256 = "92bec7f9796014d55e93d861bf7846707888ca33c61de0dfb7fa4b698298fdd2"
+    url = "https://github.com/JuliaBinaryWrappers/x264_jll.jl/releases/download/x264-v2019.5.25+0/x264.v2019.5.25.i686-linux-gnu.tar.gz"
+[[x264]]
+arch = "x86_64"
+git-tree-sha1 = "eadd6d5f7e92ab4956ee019cc017f2d94689332f"
+os = "freebsd"
+
+    [[x264.download]]
+    sha256 = "ac13642480a6637b7046c183e5c83aece920be703a7cb7c0b70a73d9b07b1425"
+    url = "https://github.com/JuliaBinaryWrappers/x264_jll.jl/releases/download/x264-v2019.5.25+0/x264.v2019.5.25.x86_64-unknown-freebsd11.1.tar.gz"
+[[x264]]
+arch = "powerpc64le"
+git-tree-sha1 = "815cb25b47862ea898885a068817832c8d34bff0"
+libc = "glibc"
+os = "linux"
+
+    [[x264.download]]
+    sha256 = "b3a5889ec2ad5bd5cc3ee0acb07994e383bb770943ab91653ea0b6802a278adb"
+    url = "https://github.com/JuliaBinaryWrappers/x264_jll.jl/releases/download/x264-v2019.5.25+0/x264.v2019.5.25.powerpc64le-linux-gnu.tar.gz"
+[[x264]]
+arch = "x86_64"
+git-tree-sha1 = "0d66f6bf9997298ef45797775c2766658394c895"
+libc = "musl"
+os = "linux"
+
+    [[x264.download]]
+    sha256 = "afcab34bf46d7bd61a2bddc0182f40ff0a977b5fa049b79b916e0db54ce0a62a"
+    url = "https://github.com/JuliaBinaryWrappers/x264_jll.jl/releases/download/x264-v2019.5.25+0/x264.v2019.5.25.x86_64-linux-musl.tar.gz"
+[[x264]]
+arch = "x86_64"
+git-tree-sha1 = "cc08e2291b7cae49f62d2dc14db5cd59f904d9b5"
+libc = "glibc"
+os = "linux"
+
+    [[x264.download]]
+    sha256 = "e86444bb0e0b76f97da892a46790ded4139cb57d04c6fa854184e441678e3509"
+    url = "https://github.com/JuliaBinaryWrappers/x264_jll.jl/releases/download/x264-v2019.5.25+0/x264.v2019.5.25.x86_64-linux-gnu.tar.gz"
+[[x264]]
+arch = "x86_64"
+git-tree-sha1 = "f51f2e600c1291588ee1945df839dec01e078e87"
+os = "windows"
+
+    [[x264.download]]
+    sha256 = "c6aa645dbfcf11cbc498c8551174fb1170ba6e37d842fb7546a188d86dd59e55"
+    url = "https://github.com/JuliaBinaryWrappers/x264_jll.jl/releases/download/x264-v2019.5.25+0/x264.v2019.5.25.x86_64-w64-mingw32.tar.gz"
+[[x264]]
+arch = "aarch64"
+git-tree-sha1 = "e60c07fe81a9e5a10c1fbdd6e4885d343e9fb489"
+libc = "musl"
+os = "linux"
+
+    [[x264.download]]
+    sha256 = "0ba49014df7c1b4e41a1e19c7d66a193537b87d8c80a8f876adcc2cd7ecc6212"
+    url = "https://github.com/JuliaBinaryWrappers/x264_jll.jl/releases/download/x264-v2019.5.25+0/x264.v2019.5.25.aarch64-linux-musl.tar.gz"
+[[x264]]
+arch = "armv7l"
+git-tree-sha1 = "058528efc0cb4826d3a06ffbad168e7f71cacf7c"
+libc = "glibc"
+os = "linux"
+
+    [[x264.download]]
+    sha256 = "0642262f5eed98302f663d2c006597ee8111a76deae767d7ecea6010239decbe"
+    url = "https://github.com/JuliaBinaryWrappers/x264_jll.jl/releases/download/x264-v2019.5.25+0/x264.v2019.5.25.arm-linux-gnueabihf.tar.gz"
+[[x264]]
+arch = "i686"
+git-tree-sha1 = "a52cd95b493233c8a785914c8755553c8813f53f"
+libc = "musl"
+os = "linux"
+
+    [[x264.download]]
+    sha256 = "ada21f7b051c04d711c43a414851ff59e06caadf0ba2569b45a5d9ee5a4cf2c0"
+    url = "https://github.com/JuliaBinaryWrappers/x264_jll.jl/releases/download/x264-v2019.5.25+0/x264.v2019.5.25.i686-linux-musl.tar.gz"
+[[x264]]
+arch = "armv7l"
+git-tree-sha1 = "40176aa90e3d98b11142269f951fa34b831c2eed"
+libc = "musl"
+os = "linux"
+
+    [[x264.download]]
+    sha256 = "df6cbb41e1825c8edff8bda42e07a449c195a48084fdc0c2c47f157d74b04d86"
+    url = "https://github.com/JuliaBinaryWrappers/x264_jll.jl/releases/download/x264-v2019.5.25+0/x264.v2019.5.25.arm-linux-musleabihf.tar.gz"
+[[x264]]
+arch = "aarch64"
+git-tree-sha1 = "098c550edeab98001b18f3ca0fec7a30d96ec661"
+libc = "glibc"
+os = "linux"
+
+    [[x264.download]]
+    sha256 = "fbdef1044d0b42b27a988f6ebe7c0bf465149f3db1b03987ba540f6810162444"
+    url = "https://github.com/JuliaBinaryWrappers/x264_jll.jl/releases/download/x264-v2019.5.25+0/x264.v2019.5.25.aarch64-linux-gnu.tar.gz"
+[[x264]]
+arch = "i686"
+git-tree-sha1 = "566f245b528cfefb1cb242dc9a4f6b982da9d261"
+os = "windows"
+
+    [[x264.download]]
+    sha256 = "7c402cde586c777061ac7781b993dbe62f8d5303dc5af76bbbfa0751546ab1aa"
+    url = "https://github.com/JuliaBinaryWrappers/x264_jll.jl/releases/download/x264-v2019.5.25+0/x264.v2019.5.25.i686-w64-mingw32.tar.gz"
