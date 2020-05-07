@@ -5,6 +5,7 @@ export libx264, x264
 PATH = ""
 LIBPATH = ""
 LIBPATH_env = "PATH"
+LIBPATH_default = ""
 
 # Relative path to `libx264`
 const libx264_splitpath = ["bin", "libx264-157.dll"]
@@ -38,8 +39,9 @@ function x264(f::Function; adjust_PATH::Bool = true, adjust_LIBPATH::Bool = true
         end
     end
     if adjust_LIBPATH
-        if !isempty(get(ENV, LIBPATH_env, ""))
-            env_mapping[LIBPATH_env] = string(LIBPATH, ';', ENV[LIBPATH_env])
+        LIBPATH_base = get(ENV, LIBPATH_env, expanduser(LIBPATH_default))
+        if !isempty(LIBPATH_base)
+            env_mapping[LIBPATH_env] = string(LIBPATH, ';', LIBPATH_base)
         else
             env_mapping[LIBPATH_env] = LIBPATH
         end
@@ -59,7 +61,7 @@ function __init__()
     # Initialize PATH and LIBPATH environment variable listings
     global PATH_list, LIBPATH_list
     # We first need to add to LIBPATH_list the libraries provided by Julia
-    append!(LIBPATH_list, [joinpath(Sys.BINDIR, Base.LIBDIR, "julia"), joinpath(Sys.BINDIR, Base.LIBDIR)])
+    append!(LIBPATH_list, [Sys.BINDIR, joinpath(Sys.BINDIR, Base.LIBDIR, "julia"), joinpath(Sys.BINDIR, Base.LIBDIR)])
     global libx264_path = normpath(joinpath(artifact_dir, libx264_splitpath...))
 
     # Manually `dlopen()` this right now so that future invocations
