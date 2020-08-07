@@ -28,29 +28,8 @@ const x264_splitpath = ["bin", "x264"]
 x264_path = ""
 
 # x264-specific global declaration
-function x264(f::Function; adjust_PATH::Bool = true, adjust_LIBPATH::Bool = true)
-    global PATH, LIBPATH
-    env_mapping = Dict{String,String}()
-    if adjust_PATH
-        if !isempty(get(ENV, "PATH", ""))
-            env_mapping["PATH"] = string(PATH, ':', ENV["PATH"])
-        else
-            env_mapping["PATH"] = PATH
-        end
-    end
-    if adjust_LIBPATH
-        LIBPATH_base = get(ENV, LIBPATH_env, expanduser(LIBPATH_default))
-        if !isempty(LIBPATH_base)
-            env_mapping[LIBPATH_env] = string(LIBPATH, ':', LIBPATH_base)
-        else
-            env_mapping[LIBPATH_env] = LIBPATH
-        end
-    end
-    withenv(env_mapping...) do
-        f(x264_path)
-    end
-end
-
+x264(f::Function; adjust_PATH::Bool = true, adjust_LIBPATH::Bool = true) =
+    executable_wrapper(f, x264_path, PATH, LIBPATH, LIBPATH_env, LIBPATH_default, ':', adjust_PATH, adjust_LIBPATH)
 
 """
 Open all libraries
@@ -60,22 +39,13 @@ function __init__()
 
     # Initialize PATH and LIBPATH environment variable listings
     global PATH_list, LIBPATH_list
-    global libx264_path = normpath(joinpath(artifact_dir, libx264_splitpath...))
 
-    # Manually `dlopen()` this right now so that future invocations
-    # of `ccall` with its `SONAME` will find this path immediately.
-    global libx264_handle = dlopen(libx264_path)
-    push!(LIBPATH_list, dirname(libx264_path))
+    global libx264_path, libx264_handle
+    libx264_path, libx264_handle = get_lib_path_handle!(LIBPATH_list, artifact_dir, libx264_splitpath)
 
-    global x264_path = normpath(joinpath(artifact_dir, x264_splitpath...))
+    global x264_path = get_exe_path!(PATH_list, artifact_dir, x264_splitpath)
 
-    push!(PATH_list, dirname(x264_path))
-    # Filter out duplicate and empty entries in our PATH and LIBPATH entries
-    filter!(!isempty, unique!(PATH_list))
-    filter!(!isempty, unique!(LIBPATH_list))
-    global PATH = join(PATH_list, ':')
-    global LIBPATH = join(vcat(LIBPATH_list, [joinpath(Sys.BINDIR, Base.LIBDIR, "julia"), joinpath(Sys.BINDIR, Base.LIBDIR)]), ':')
-
+    global PATH, LIBPATH
+    PATH, LIBPATH = cleanup_path_libpath!(PATH_list, LIBPATH_list, ':')
     
 end  # __init__()
-
